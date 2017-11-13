@@ -18,13 +18,13 @@ class ReportIncidentViewController: UIViewController, UIImagePickerControllerDel
     
     @IBAction func useCurLocationSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
-            locationTextField.isHidden = true // hide location input field
+            disableLocationInput(curLocation: "Showing your current location")  //disable user input for location
             
             // get the current location with coordinates and name
             
         }
         else {
-            locationTextField.isHidden = false //show location input field for user interaction
+            activateLoactionInput() // enable user input for loaction
         }
         
     }
@@ -68,16 +68,6 @@ class ReportIncidentViewController: UIViewController, UIImagePickerControllerDel
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,9 +77,9 @@ class ReportIncidentViewController: UIViewController, UIImagePickerControllerDel
         imageView.layer.borderColor = UIColor.lightGray.cgColor
         imageView.layer.borderWidth = 1
         
-        // default the use current location switch on, and hide location input field 
+        // default the use current location switch on, and show the location
         useCurLocationSwitch.isOn = true
-        locationTextField.isHidden = true
+        disableLocationInput(curLocation: "Showing your current location")
 
         
         
@@ -100,7 +90,27 @@ class ReportIncidentViewController: UIViewController, UIImagePickerControllerDel
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    // disable location input field to make it showing current location
+    private func disableLocationInput(curLocation: String!) {
+        locationTextField.text = curLocation
+        locationTextField.isUserInteractionEnabled = false
+    }
+    
+    // enable location input from user
+    private func activateLoactionInput() {
+        locationTextField.text = ""
+        locationTextField.isUserInteractionEnabled = true
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 
