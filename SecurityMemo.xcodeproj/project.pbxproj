@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01113A511FBA4CD5007802F3 /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01113A501FBA4CD5007802F3 /* Incident.swift */; };
+		01113A571FBA5147007802F3 /* LocationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01113A561FBA5147007802F3 /* LocationObjects.swift */; };
 		01425A641FB8A7DC00A43FD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01425A631FB8A7DC00A43FD1 /* AppDelegate.swift */; };
 		01425A691FB8A7DC00A43FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01425A671FB8A7DC00A43FD1 /* Main.storyboard */; };
 		01425A6B1FB8A7DC00A43FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01425A6A1FB8A7DC00A43FD1 /* Assets.xcassets */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01113A501FBA4CD5007802F3 /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incident.swift; sourceTree = "<group>"; };
+		01113A561FBA5147007802F3 /* LocationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationObjects.swift; sourceTree = "<group>"; };
 		01425A631FB8A7DC00A43FD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01425A681FB8A7DC00A43FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01425A6A1FB8A7DC00A43FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01113A4F1FBA4C46007802F3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				01113A501FBA4CD5007802F3 /* Incident.swift */,
+				01113A561FBA5147007802F3 /* LocationObjects.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		01425A571FB8A7DC00A43FD1 = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +59,7 @@
 		01425A621FB8A7DC00A43FD1 /* SecurityMemo */ = {
 			isa = PBXGroup;
 			children = (
+				01113A4F1FBA4C46007802F3 /* Models */,
 				01425A761FB8B23800A43FD1 /* controllers */,
 				01425A751FB8AAD100A43FD1 /* views */,
 				01425A631FB8A7DC00A43FD1 /* AppDelegate.swift */,
@@ -154,7 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				01425A781FB8B5DA00A43FD1 /* ReportIncidentViewController.swift in Sources */,
+				01113A511FBA4CD5007802F3 /* Incident.swift in Sources */,
 				01425A641FB8A7DC00A43FD1 /* AppDelegate.swift in Sources */,
+				01113A571FBA5147007802F3 /* LocationObjects.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

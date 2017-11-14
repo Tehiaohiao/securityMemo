@@ -63,7 +63,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-ZI-2lE">
                                 <rect key="frame" x="15" y="72" width="345" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <color key="textColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Summary of an incident" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgL-D4-xUa">
@@ -71,6 +71,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="summaryChanged:" destination="DBr-eM-wSA" eventType="editingChanged" id="1ML-V9-Tce"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7n-4p-9Uz">
                                 <rect key="frame" x="15" y="349" width="345" height="18"/>
@@ -104,7 +107,7 @@
                                     <!--2017-11-12 17:25:05 +0000-->
                                 </date>
                                 <connections>
-                                    <action selector="dateTimePicker:" destination="DBr-eM-wSA" eventType="valueChanged" id="zDa-jy-dDQ"/>
+                                    <action selector="datetimePickerChanged:" destination="DBr-eM-wSA" eventType="valueChanged" id="Sln-K0-nnr"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pty-Mv-ZpT">
@@ -125,6 +128,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="locationChanged:" destination="DBr-eM-wSA" eventType="editingChanged" id="ZBD-EM-ybo"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0k-Zr-etr">
                                 <rect key="frame" x="16" y="136" width="343" height="18"/>
@@ -142,6 +148,9 @@
                                     <segment title="Others"/>
                                 </segments>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="typeSegmentChanged:" destination="DBr-eM-wSA" eventType="valueChanged" id="rsP-Ka-bYX"/>
+                                </connections>
                             </segmentedControl>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lJt-PQ-4vo">
                                 <rect key="frame" x="51" y="438" width="273" height="175"/>
@@ -258,11 +267,18 @@
                             <constraint firstAttribute="trailing" secondItem="5Ne-ZI-2lE" secondAttribute="trailing" constant="15" id="zHm-t6-pbE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="O3M-ob-FkB"/>
+                    <navigationItem key="navigationItem" id="O3M-ob-FkB">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="hpr-ws-x81">
+                            <connections>
+                                <action selector="doneBtnPressed:" destination="DBr-eM-wSA" id="1eu-4q-kL0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="descriptionTextView" destination="IpJ-mK-lst" id="swe-rg-T7Z"/>
+                        <outlet property="dateTimePickerView" destination="Pwa-Xa-WIQ" id="1D0-ou-nQ8"/>
+                        <outlet property="descriptionTextView" destination="IpJ-mK-lst" id="aNL-tX-S7F"/>
                         <outlet property="imageView" destination="lJt-PQ-4vo" id="6Jq-oJ-6Dn"/>
-                        <outlet property="locationTextField" destination="SlH-tH-5fC" id="usv-aP-hTF"/>
+                        <outlet property="locationTextField" destination="SlH-tH-5fC" id="dS1-Np-2dI"/>
                         <outlet property="useCurLocationSwitch" destination="xyF-wY-JpQ" id="Oma-Ty-nH4"/>
                     </connections>
                 </viewController>
