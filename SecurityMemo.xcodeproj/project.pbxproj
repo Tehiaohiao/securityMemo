@@ -13,7 +13,8 @@
 		01425A691FB8A7DC00A43FD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01425A671FB8A7DC00A43FD1 /* Main.storyboard */; };
 		01425A6B1FB8A7DC00A43FD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01425A6A1FB8A7DC00A43FD1 /* Assets.xcassets */; };
 		01425A6E1FB8A7DC00A43FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01425A6C1FB8A7DC00A43FD1 /* LaunchScreen.storyboard */; };
-		01425A781FB8B5DA00A43FD1 /* ReportIncidentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01425A771FB8B5DA00A43FD1 /* ReportIncidentViewController.swift */; };
+		01425A781FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */; };
+		01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +25,8 @@
 		01425A6A1FB8A7DC00A43FD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01425A6D1FB8A7DC00A43FD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01425A6F1FB8A7DC00A43FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		01425A771FB8B5DA00A43FD1 /* ReportIncidentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportIncidentViewController.swift; sourceTree = "<group>"; };
+		01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentReportInfoViewController.swift; sourceTree = "<group>"; };
+		01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentReportPictureViewController.swift; sourceTree = "<group>"; };
 		01F1EFC01FB94DCA001D2ADD /* SecurityMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecurityMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,7 +83,8 @@
 		01425A761FB8B23800A43FD1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01425A771FB8B5DA00A43FD1 /* ReportIncidentViewController.swift */,
+				01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */,
+				01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -167,7 +170,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01425A781FB8B5DA00A43FD1 /* ReportIncidentViewController.swift in Sources */,
+				01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */,
+				01425A781FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift in Sources */,
 				01113A511FBA4CD5007802F3 /* Incident.swift in Sources */,
 				01425A641FB8A7DC00A43FD1 /* AppDelegate.swift in Sources */,
 				01113A571FBA5147007802F3 /* LocationObjects.swift in Sources */,
