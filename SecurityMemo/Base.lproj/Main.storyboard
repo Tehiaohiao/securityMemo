@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="1911.2" y="36.431784107946029"/>
         </scene>
-        <!--Information-->
+        <!--Incident-->
         <scene sceneID="kHc-li-jvn">
             <objects>
                 <viewController id="DBr-eM-wSA" customClass="IncidentReportInfoViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -98,7 +98,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xyF-wY-JpQ">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xyF-wY-JpQ">
                                 <rect key="frame" x="310" y="205" width="51" height="31"/>
                                 <color key="onTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -192,7 +192,7 @@
                             <constraint firstItem="eCm-6p-ZS9" firstAttribute="trailing" secondItem="4tC-jj-qoV" secondAttribute="trailingMargin" id="xVU-VC-qnh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Information" id="isS-0m-nYs">
+                    <navigationItem key="navigationItem" title="Incident" id="isS-0m-nYs">
                         <barButtonItem key="rightBarButtonItem" title="Next &gt;" id="QhK-eU-2fe">
                             <connections>
                                 <segue destination="VVL-Me-RYO" kind="show" id="txk-0J-ZlB"/>

@@ -7,6 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
+
+struct Location {
+    var name: String?
+    var coordinate: CLLocationCoordinate2D?
+}
+
 class Incident {
     
     enum IncidentType {
@@ -35,26 +42,21 @@ class Incident {
     // check if all propertities are presented
     public func check() -> (Bool, String) {
         if summary == "" {
-            print("summary")
             return (false, Incident.MISS_SUMMARY)
         }
         if location == nil || location?.name == nil || location?.coordinate == nil ||
             location?.coordinate?.longitude ==  nil || location?.coordinate?.latitude == nil {
-            print("location")
             return (false, Incident.MISS_LOCATION)
         }
         
         if dateTime == nil || dateTime?.year == nil || dateTime?.month == nil || dateTime?.day == nil ||
             dateTime?.hour == nil || dateTime?.minute == nil {
-            print("time")
             return (false, Incident.MISS_DATETIME)
         }
         if description == nil || description == "" {
-            print("description")
             return (false, Incident.MISS_DESCRIPTION)
         }
         if picture  == nil {
-            print("picture")
             return (false, Incident.MISS_PICTURE)
         }
         

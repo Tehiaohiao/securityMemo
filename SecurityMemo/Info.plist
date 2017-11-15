@@ -28,6 +28,8 @@
 	<string>SecurityMemo is trustworthy</string>
 	<key>NSCameraUsageDescription</key>
 	<string>SecurityMemo is trustworthy</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>SecurityMemo is trustworthy</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

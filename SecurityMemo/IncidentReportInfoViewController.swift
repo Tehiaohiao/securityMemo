@@ -11,6 +11,7 @@ import UIKit
 class IncidentReportInfoViewController: UIViewController {
 
     private var incident: Incident!  // preparing incident object
+    private var locationManager: LocationManager! // location manager to get cur location
     
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -34,10 +35,8 @@ class IncidentReportInfoViewController: UIViewController {
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.borderWidth = 1
         
-        
-        // default the use current location switch on, and show the location
-        useCurLocationSwitch.isOn = true
-        disableLocationInput(curLocation: "Showing your current location")
+        // default the use current location switch off
+        useCurLocationSwitch.isOn = false
         
         // default incident date has to be within 7 days and not in the future
         dateTimePickerView.maximumDate = Date() // cannot report incident happeniing in futer
@@ -47,6 +46,9 @@ class IncidentReportInfoViewController: UIViewController {
         self.incident = Incident()
         self.incident.dateTime = Calendar.current.dateComponents([.hour, .minute, .day, .month,.year], from: dateTimePickerView.date)
         self.incident.type = Incident.IncidentType.Others
+        
+        // initialize location manager
+        self.locationManager = LocationManager()
     }
     
     
@@ -96,7 +98,7 @@ class IncidentReportInfoViewController: UIViewController {
             
             
             // --------------> set up coordinates
-            self.incident.location?.coordinate = Coordinate(longitude: "faked", latitude: "faked")
+            self.incident.location?.coordinate = nil
         }
     }
     
@@ -104,10 +106,18 @@ class IncidentReportInfoViewController: UIViewController {
     // switch for user current loction utility
     @IBAction func useCurLocationSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
-            disableLocationInput(curLocation: "Showing your current location")  //disable user input for location
-            
-            // ---------> get the current location with coordinates and name
-            
+            // get the address displayed in the location input field
+            if let location = self.locationManager.getCurCoordinate() {
+                LocationManager.getAddressFromCoordinate(coordinate: location, completionHandler: { (response) in
+                    self.disableLocationInput(curLocation: response)
+                })
+            }
+            else {
+                self.disableLocationInput(curLocation: "Cannot find your current location!")
+            }
+
+            // fill incident's location coordinate
+            self.incident.location?.coordinate = self.locationManager.getCurCoordinate()?.coordinate
         }
         else {
             activateLoactionInput() // enable user input for loaction
@@ -142,7 +152,11 @@ class IncidentReportInfoViewController: UIViewController {
     
     
     // Helper function disables location input field to make it showing current location
-    private func disableLocationInput(curLocation: String!) {
+    private func disableLocationInput(curLocation: String?) {
+        if curLocation == nil {
+            locationTextField.text = "Cannot find your current location!"
+            return
+        }
         locationTextField.text = curLocation
         locationTextField.isUserInteractionEnabled = false
     }
