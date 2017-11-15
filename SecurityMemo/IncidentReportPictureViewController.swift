@@ -27,14 +27,18 @@ class IncidentReportPictureViewController: UIViewController, UIImagePickerContro
     @IBAction func doneBtnPressed(_ sender: UIBarButtonItem) {
         let (integrated, missing) = self.incident.check()
         if integrated {
-            
             // upload to database
+            MockDatabase.database.append(self.incident)
+            
+            // go to map view
+            tabBarController?.selectedIndex = 0
+            return
         }
         if !integrated && missing == Incident.MISS_PICTURE {
             navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.red]
         }
         else {
-            print("Unexpected part missing for incident!!!")
+            print("Unexpected part missing for incident: \(missing)")
         }
     }
 

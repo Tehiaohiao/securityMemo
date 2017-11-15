@@ -92,13 +92,13 @@ class IncidentReportInfoViewController: UIViewController {
    
     // get location from location input filed
     @IBAction func locationInputFiled(_ sender: UITextField) {
-        // location can only be editted by users when useCurLocationSwitch is off
+        // location can only be editted by users when useCurLocationSwitch is off, double check here
         if !useCurLocationSwitch.isOn {
+            // for now assume the user could put valid address
             self.incident.location?.name = sender.text!;
-            
-            
-            // --------------> set up coordinates
-            self.incident.location?.coordinate = nil
+            LocationManager.getCoordinateFromAddress(address: sender.text!, completionHandler: { (coordinate) in
+                self.incident.location?.coordinate = coordinate
+            })
         }
     }
     
@@ -106,18 +106,7 @@ class IncidentReportInfoViewController: UIViewController {
     // switch for user current loction utility
     @IBAction func useCurLocationSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
-            // get the address displayed in the location input field
-            if let location = self.locationManager.getCurCoordinate() {
-                LocationManager.getAddressFromCoordinate(coordinate: location, completionHandler: { (response) in
-                    self.disableLocationInput(curLocation: response)
-                })
-            }
-            else {
-                self.disableLocationInput(curLocation: "Cannot find your current location!")
-            }
-
-            // fill incident's location coordinate
-            self.incident.location?.coordinate = self.locationManager.getCurCoordinate()?.coordinate
+            disableLocationInput() // use current loction, instead of user's input
         }
         else {
             activateLoactionInput() // enable user input for loaction
@@ -152,13 +141,23 @@ class IncidentReportInfoViewController: UIViewController {
     
     
     // Helper function disables location input field to make it showing current location
-    private func disableLocationInput(curLocation: String?) {
-        if curLocation == nil {
-            locationTextField.text = "Cannot find your current location!"
-            return
-        }
-        locationTextField.text = curLocation
+    private func disableLocationInput() {
+        // disable user interaction
         locationTextField.isUserInteractionEnabled = false
+        
+        // get the address 
+        if let location = self.locationManager.getCurCoordinate() {
+            LocationManager.getAddressFromCoordinate(coordinate: location, completionHandler: { (curAddress) in
+                self.locationTextField.text = curAddress
+                
+                // integrate incident
+                self.incident.location?.name = curAddress
+                self.incident.location?.coordinate = self.locationManager.getCurCoordinate()?.coordinate
+            })
+        }
+        else {
+            locationTextField.text = "Cannot find your current location!"
+        }
     }
     
     // Helper function enables location input from user

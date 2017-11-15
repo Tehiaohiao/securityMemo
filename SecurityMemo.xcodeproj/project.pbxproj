@@ -16,6 +16,7 @@
 		01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */; };
 		01D07DDB1FBBF2220094C8E6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D07DDA1FBBF2220094C8E6 /* LocationManager.swift */; };
 		01D07DDE1FBBF32C0094C8E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D07DDD1FBBF32C0094C8E6 /* CoreLocation.framework */; };
+		01E2CB7B1FBC9E9700C9D305 /* MockingDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentReportPictureViewController.swift; sourceTree = "<group>"; };
 		01D07DDA1FBBF2220094C8E6 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		01D07DDD1FBBF32C0094C8E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockingDatabase.swift; sourceTree = "<group>"; };
 		01F1EFC01FB94DCA001D2ADD /* SecurityMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecurityMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,8 +89,8 @@
 		01425A761FB8B23800A43FD1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */,
 				01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */,
+				01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				01D07DDA1FBBF2220094C8E6 /* LocationManager.swift */,
+				01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */,
 				01425A781FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift in Sources */,
 				01D07DDB1FBBF2220094C8E6 /* LocationManager.swift in Sources */,
+				01E2CB7B1FBC9E9700C9D305 /* MockingDatabase.swift in Sources */,
 				01113A511FBA4CD5007802F3 /* Incident.swift in Sources */,
 				01425A641FB8A7DC00A43FD1 /* AppDelegate.swift in Sources */,
 			);

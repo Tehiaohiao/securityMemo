@@ -28,7 +28,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.curLocation = locations[0]
+        self.curLocation = locations.first
     }
     
     public func getCurCoordinate() -> CLLocation?{
@@ -36,44 +36,63 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     
-    
-    // function to convert a coordinate to a readable address and handle the result
-    public static func getAddressFromCoordinate (coordinate: CLLocation, completionHandler: @escaping (_ result: String?) -> Void) {
-        CLGeocoder().reverseGeocodeLocation(coordinate) { (placemark, error) in
+    // function to convert an address to a coordinate
+    public static func getCoordinateFromAddress (address: String!, completionHandler: @escaping (_ coordinate: CLLocationCoordinate2D?) -> Void) {
+        CLGeocoder().geocodeAddressString(address) { (placemarks, error) in
             if error != nil {
                 print(error.debugDescription)
                 completionHandler(nil)
+                return
             }
-            else {
-                if let place = placemark?[0] {
-                    var address: String = ""
-                    if place.subThoroughfare != nil {
-                        address += "\(place.subThoroughfare!)"
-                    }
-                    if place.thoroughfare != nil {
-                        address += ", \(place.thoroughfare!)"
-                    }
-                    if place.subLocality != nil {
-                        address += ", \(place.subLocality!)"
-                    }
-                    if place.locality != nil {
-                        address += ", \(place.locality!)"
-                    }
-                    
-                    if address == "" {
-                        completionHandler(nil)
-                    }
-                    else {
-                        if address[address.startIndex] == "," {
-                            address = address.substring(from: address.index(address.startIndex, offsetBy: 1))
-                        }
-                        completionHandler(address)
-                    }
-                }
-                else {
-                    completionHandler(nil)
-                }
+            if let coord = placemarks?.first?.location {
+                completionHandler(coord.coordinate)
+                return
             }
+            completionHandler(nil)
         }
     }
+    
+
+    // function to convert a coordinate to a readable address and handle the result
+    public static func getAddressFromCoordinate (coordinate: CLLocation, completionHandler: @escaping (_ result: String?) -> Void) {
+        CLGeocoder().reverseGeocodeLocation(coordinate) { (placemarks, error) in
+            if error != nil {
+                print(error.debugDescription)
+                completionHandler(nil)
+                return
+            }
+            // get as detailed address as possible
+            if let place = placemarks?.first{
+                var address: String = ""
+                if place.subThoroughfare != nil {
+                    address += "\(place.subThoroughfare!)"
+                }
+                if place.thoroughfare != nil {
+                    address += ", \(place.thoroughfare!)"
+                }
+                if place.subLocality != nil {
+                    address += ", \(place.subLocality!)"
+                }
+                if place.locality != nil {
+                    address += ", \(place.locality!)"
+                }
+                // get nothing
+                if address == "" {
+                    completionHandler(nil)
+                }
+                else {
+                    // no subthroughfare
+                    if address[address.startIndex] == "," {
+                        address = address.substring(from: address.index(address.startIndex, offsetBy: 1))
+                    }
+                    completionHandler(address)
+                }
+                return
+            }
+            completionHandler(nil)
+        }
+    }
+    
+    
+
 }
