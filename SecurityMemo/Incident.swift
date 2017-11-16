@@ -22,6 +22,7 @@ class Incident {
         case Violent
         case Burglary
         case Others
+        case Multiple
     }
     
     public static let MISS_SUMMARY = "summary"
@@ -62,6 +63,35 @@ class Incident {
         
         return (true, "")
     }
+    
+    
+    
+    // clears all the properties
+    public func clear() {
+        self.summary = ""
+        self.type = .Others
+        self.location = Location()
+        self.dateTime = nil
+        self.description = nil
+        self.picture = nil
+    }
+    
+    
+    // make a copy of itself
+    public func makeCopy() -> Incident {
+        let copy = Incident()
+        copy.summary = self.summary
+        copy.type = self.type
+        copy.location = self.location
+        copy.location?.name = self.location?.name
+        copy.location?.coordinate = self.location?.coordinate
+        copy.dateTime = self.dateTime
+        copy.description = self.description
+        copy.picture = self.picture
+        return copy
+    }
+    
+    
     
     
 }

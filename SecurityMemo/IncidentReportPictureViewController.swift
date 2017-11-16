@@ -10,7 +10,7 @@ import UIKit
 
 class IncidentReportPictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    var incident: Incident!
+    weak var delegate: IncidentReportInfoViewController!
     @IBOutlet weak var imageView: UIImageView!
     
     
@@ -20,18 +20,20 @@ class IncidentReportPictureViewController: UIViewController, UIImagePickerContro
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.black]
-        imageView.image = self.incident.picture
+        imageView.image = self.delegate.incident.picture
     }
     
     
     @IBAction func doneBtnPressed(_ sender: UIBarButtonItem) {
-        let (integrated, missing) = self.incident.check()
+        let (integrated, missing) = self.delegate.incident.check()
         if integrated {
-            // upload to database
-            MockDatabase.database.append(self.incident)
-            
+            // upload to database and clear user input
+            MockDatabase.database.append(self.delegate.incident.makeCopy())
+            self.clear()
+
             // go to map view
             tabBarController?.selectedIndex = 0
+            _ = navigationController?.popViewController(animated: true)
             return
         }
         if !integrated && missing == Incident.MISS_PICTURE {
@@ -61,9 +63,16 @@ class IncidentReportPictureViewController: UIViewController, UIImagePickerContro
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
-            self.incident.picture = imageView.image
+            self.delegate.incident.picture = imageView.image
         }
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    // clear out user input image 
+    func clear() {
+        self.delegate.clear()
+        self.imageView.image = nil
     }
 
 }

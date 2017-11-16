@@ -8,6 +8,9 @@
 
 import Foundation
 class MockDatabase {
+    
+    
+    
     public static var database: [Incident] = [] {
         didSet{
             print(database)

@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="1911.2" y="-684.10794602698661"/>
         </scene>
-        <!--View Controller-->
+        <!--Incident Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="IncidentMapViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,9 +40,35 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pNO-ag-GLd">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="rJf-VF-Hl1">
+                                <rect key="frame" x="169" y="323" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pNO-ag-GLd" secondAttribute="bottom" id="Koz-9r-0GF"/>
+                            <constraint firstItem="pNO-ag-GLd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UD2-Uq-ulO"/>
+                            <constraint firstItem="pNO-ag-GLd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XNn-w7-ZJe"/>
+                            <constraint firstAttribute="trailing" secondItem="pNO-ag-GLd" secondAttribute="trailing" id="euf-eR-w8F"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Arv-bi-Qt0"/>
+                    <navigationItem key="navigationItem" id="Arv-bi-Qt0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="eY8-mB-Zqu">
+                            <connections>
+                                <action selector="searchBtnPressed:" destination="BYZ-38-t0r" id="as7-ua-D8e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="rJf-VF-Hl1" id="Mwm-P6-sT1"/>
+                        <outlet property="mapView" destination="pNO-ag-GLd" id="f5M-Wv-mg4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,9 +232,11 @@
                         <outlet property="imageView" destination="lJt-PQ-4vo" id="6Jq-oJ-6Dn"/>
                         <outlet property="locationLabel" destination="pty-Mv-ZpT" id="Gtm-k3-KcM"/>
                         <outlet property="locationTextField" destination="SlH-tH-5fC" id="2VD-06-bAh"/>
+                        <outlet property="summaryInputField" destination="QgL-D4-xUa" id="K4e-ax-Xgz"/>
                         <outlet property="summaryLabel" destination="5Ne-ZI-2lE" id="isZ-At-0S2"/>
                         <outlet property="timeLabel" destination="eCm-6p-ZS9" id="1iH-89-inc"/>
                         <outlet property="typeLabel" destination="w0k-Zr-etr" id="r7k-ZR-dwP"/>
+                        <outlet property="typeSegment" destination="FRp-dz-wkt" id="jQF-sF-QPn"/>
                         <outlet property="useCurLocationSwitch" destination="xyF-wY-JpQ" id="DDT-x8-pyd"/>
                     </connections>
                 </viewController>

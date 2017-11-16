@@ -10,12 +10,14 @@ import UIKit
 
 class IncidentReportInfoViewController: UIViewController {
 
-    private var incident: Incident!  // preparing incident object
+    var incident: Incident!  // preparing incident object
     private var locationManager: LocationManager! // location manager to get cur location
     
     @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var summaryInputField: UITextField!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var typeSegment: UISegmentedControl!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var useCurLocationSwitch: UISwitch!
     @IBOutlet weak var timeLabel: UILabel!
@@ -34,6 +36,9 @@ class IncidentReportInfoViewController: UIViewController {
         // set up border for description textView and imageView
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.borderWidth = 1
+        
+        // select .Others as default type
+        self.typeSegment.selectedSegmentIndex = self.typeSegment.numberOfSegments - 1
         
         // default the use current location switch off
         useCurLocationSwitch.isOn = false
@@ -135,7 +140,7 @@ class IncidentReportInfoViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destVC = segue.destination as? IncidentReportPictureViewController {
-            destVC.incident = self.incident
+            destVC.delegate = self
         }
     }
     
@@ -187,6 +192,16 @@ class IncidentReportInfoViewController: UIViewController {
         }
     }
     
+    
+    // clear out all user input
+    func clear() {
+        self.incident.clear()
+        self.summaryInputField.text = ""
+        self.locationTextField.text =  ""
+        self.descriptionTextView.text = ""
+        self.typeSegment.selectedSegmentIndex = self.typeSegment.numberOfSegments - 1
+        self.incident.dateTime = Calendar.current.dateComponents([.hour, .minute, .day, .month,.year], from: dateTimePickerView.date)
+    }
     
     
     
