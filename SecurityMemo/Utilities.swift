@@ -23,6 +23,7 @@ class Utilities {
     }
     
     
+    // Resizes an image
     public static func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
         let scale = newWidth / image.size.width
@@ -33,6 +34,14 @@ class Utilities {
         UIGraphicsEndImageContext()
         
         return newImage!
+    }
+    
+    // get a readable text from DateComponent
+    public static func dateCompToString(date: DateComponents?) -> String {
+        if date != nil {
+            return "\(date!.hour!):\(date!.minute!), \(date!.year!)-\(date!.month!)-\(date!.day!)"
+        }
+        return ""
     }
 
 }

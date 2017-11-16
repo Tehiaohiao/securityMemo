@@ -12,9 +12,9 @@ import MapKit
 
 class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     
-    private let SPAN_WIDTH: CLLocationDegrees = 0.05
-    private let PIN_SIZE: CGFloat = 50
-    private let INCIDENT_PIN_IDENTIFIER = "IncidentPinIdentifier"
+    private let SPAN_WIDTH: CLLocationDegrees = 0.05    // default span with when you search a place
+    private let PIN_SIZE: CGFloat = 50          // default size of pin annotation
+    private let INCIDENT_PIN_IDENTIFIER = "IncidentPinIdentifier"   //default annotation veiw indentifier
     private var locationManager: LocationManager!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -38,7 +38,6 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
             self.mapView.setRegion(region, animated: true)
         }
         
-        
         // add annotation for each incident
         // NOTE: using mock database for now
         for ict in MockDatabase.database {
@@ -48,11 +47,8 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("map view will apprear")
         if self.mapView != nil {
-            
             self.mapView.removeAnnotations(self.mapView.annotations)
-            
             // add annotation for each incident
             // NOTE: using mock database for now
             for ict in MockDatabase.database {
@@ -70,8 +66,9 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     }
     
     
+    // search text done inputing by users
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // start animating
+        // start activity indicator
         self.activityIndicator.startAnimating()
 
         // hide search bar 
@@ -82,11 +79,10 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
         DispatchQueue.global(qos: .userInitiated).async {
             self.searchLocation(searchText: searchBar.text)
             DispatchQueue.main.async {
-                // stop animating
+                // stop activity indicator
                 self.activityIndicator.stopAnimating()
             }
         }
-        
     }
     
     
@@ -123,12 +119,23 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
             let ictPinAnnotation = annotation as! IncidentPinAnnotation
             if let image = UIImage(named: ictPinAnnotation.getPinImageName()) {
                 annotationView?.image = Utilities.resizeImage(image: image, newWidth: self.PIN_SIZE)
+                let btn = UIButton(type: .detailDisclosure)
+                annotationView?.rightCalloutAccessoryView = btn
             }
         }
         
         return annotationView
     }
     
+    // segue to detailed view
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control ==  view.rightCalloutAccessoryView && view.annotation is IncidentPinAnnotation {
+            let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "incidentDetailVC") as! IncidentDetailViewController
+            let inctAnnotation = view.annotation as! IncidentPinAnnotation
+            detailVC.incident = inctAnnotation.incident
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
     
 
     override func didReceiveMemoryWarning() {

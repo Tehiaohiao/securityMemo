@@ -16,13 +16,13 @@ struct Location {
 
 class Incident {
     
-    enum IncidentType {
-        case Robbery
-        case Theft
-        case Violent
-        case Burglary
-        case Others
-        case Multiple
+    enum IncidentType: String {
+        case Robbery = "Robbery"
+        case Theft = "Theft"
+        case Violent = "Violent"
+        case Burglary = "Burglary"
+        case Others = "Others"
+        case Multiple = "Multiple"
     }
     
     public static let MISS_SUMMARY = "summary"
