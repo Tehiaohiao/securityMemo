@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class IncidentReportInfoViewController: UIViewController {
 
@@ -100,9 +101,14 @@ class IncidentReportInfoViewController: UIViewController {
         // location can only be editted by users when useCurLocationSwitch is off, double check here
         if !useCurLocationSwitch.isOn {
             // for now assume the user could put valid address
-            self.incident.location?.name = sender.text!;
             LocationManager.getCoordinateFromAddress(address: sender.text!, completionHandler: { (coordinate) in
-                self.incident.location?.coordinate = coordinate
+                if coordinate != nil {
+                    self.incident.location?.coordinate = coordinate
+                    let l = CLLocation(latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!)
+                    LocationManager.getAddressFromCoordinate(coordinate: l, completionHandler: { (address) in
+                        self.incident.location?.name = address
+                    })
+                }
             })
         }
     }
@@ -197,7 +203,8 @@ class IncidentReportInfoViewController: UIViewController {
     func clear() {
         self.incident.clear()
         self.summaryInputField.text = ""
-        self.locationTextField.text =  ""
+        self.useCurLocationSwitch.isOn = false
+        self.activateLoactionInput()
         self.descriptionTextView.text = ""
         self.typeSegment.selectedSegmentIndex = self.typeSegment.numberOfSegments - 1
         self.incident.dateTime = Calendar.current.dateComponents([.hour, .minute, .day, .month,.year], from: dateTimePickerView.date)

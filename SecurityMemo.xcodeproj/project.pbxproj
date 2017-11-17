@@ -14,6 +14,9 @@
 		01425A6E1FB8A7DC00A43FD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01425A6C1FB8A7DC00A43FD1 /* LaunchScreen.storyboard */; };
 		01425A781FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */; };
 		01989FCE1FBDF72000331430 /* IncidentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01989FCD1FBDF72000331430 /* IncidentDetailViewController.swift */; };
+		01989FD01FBE6C8D00331430 /* IncidentDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01989FCF1FBE6C8D00331430 /* IncidentDetailTableViewCell.swift */; };
+		01989FD21FBE6EF400331430 /* MultiIncidentsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01989FD11FBE6EF400331430 /* MultiIncidentsDetailsViewController.swift */; };
+		01989FD41FBE74AC00331430 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01989FD31FBE74AC00331430 /* Identifiers.swift */; };
 		01B18EF31FBCF15000E2FAFB /* IncidentPinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B18EF21FBCF15000E2FAFB /* IncidentPinAnnotation.swift */; };
 		01B18EF51FBD25DE00E2FAFB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B18EF41FBD25DE00E2FAFB /* Utilities.swift */; };
 		01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */; };
@@ -33,6 +36,9 @@
 		01425A6F1FB8A7DC00A43FD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentReportInfoViewController.swift; sourceTree = "<group>"; };
 		01989FCD1FBDF72000331430 /* IncidentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentDetailViewController.swift; sourceTree = "<group>"; };
+		01989FCF1FBE6C8D00331430 /* IncidentDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentDetailTableViewCell.swift; sourceTree = "<group>"; };
+		01989FD11FBE6EF400331430 /* MultiIncidentsDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiIncidentsDetailsViewController.swift; sourceTree = "<group>"; };
+		01989FD31FBE74AC00331430 /* Identifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Identifiers.swift; sourceTree = "<group>"; };
 		01B18EF21FBCF15000E2FAFB /* IncidentPinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentPinAnnotation.swift; sourceTree = "<group>"; };
 		01B18EF41FBD25DE00E2FAFB /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentReportPictureViewController.swift; sourceTree = "<group>"; };
@@ -81,9 +87,9 @@
 				01425A631FB8A7DC00A43FD1 /* AppDelegate.swift */,
 				01425A6C1FB8A7DC00A43FD1 /* LaunchScreen.storyboard */,
 				01425A6F1FB8A7DC00A43FD1 /* Info.plist */,
-				01113A4F1FBA4C46007802F3 /* Models */,
-				01425A761FB8B23800A43FD1 /* controllers */,
 				01425A751FB8AAD100A43FD1 /* views */,
+				01425A761FB8B23800A43FD1 /* controllers */,
+				01113A4F1FBA4C46007802F3 /* Models */,
 				01D07DD91FBBF1ED0094C8E6 /* Utilities */,
 				01F1EFC11FB95047001D2ADD /* Production */,
 			);
@@ -94,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				01425A671FB8A7DC00A43FD1 /* Main.storyboard */,
+				01989FCF1FBE6C8D00331430 /* IncidentDetailTableViewCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -105,6 +112,7 @@
 				01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */,
 				01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */,
 				01989FCD1FBDF72000331430 /* IncidentDetailViewController.swift */,
+				01989FD11FBE6EF400331430 /* MultiIncidentsDetailsViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 				01B18EF41FBD25DE00E2FAFB /* Utilities.swift */,
 				01D07DDA1FBBF2220094C8E6 /* LocationManager.swift */,
 				01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */,
+				01989FD31FBE74AC00331430 /* Identifiers.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -211,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E2CB7D1FBCB82B00C9D305 /* IncidentMapViewController.swift in Sources */,
+				01989FD21FBE6EF400331430 /* MultiIncidentsDetailsViewController.swift in Sources */,
 				01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */,
 				01425A781FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift in Sources */,
 				01989FCE1FBDF72000331430 /* IncidentDetailViewController.swift in Sources */,
@@ -218,6 +228,8 @@
 				01E2CB7B1FBC9E9700C9D305 /* MockingDatabase.swift in Sources */,
 				01113A511FBA4CD5007802F3 /* Incident.swift in Sources */,
 				01B18EF51FBD25DE00E2FAFB /* Utilities.swift in Sources */,
+				01989FD41FBE74AC00331430 /* Identifiers.swift in Sources */,
+				01989FD01FBE6C8D00331430 /* IncidentDetailTableViewCell.swift in Sources */,
 				01B18EF31FBCF15000E2FAFB /* IncidentPinAnnotation.swift in Sources */,
 				01425A641FB8A7DC00A43FD1 /* AppDelegate.swift in Sources */,
 			);

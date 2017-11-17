@@ -12,10 +12,6 @@ import MapKit
 // collection of functions for general purpose
 class Utilities {
     
-    
-    
-    
-    
     // construct a key for the annotation which takes forms of "LA-latitude,LO-longitude"
     // this key is going to be used uniquely indentify the annotation
     public static func convertCoordinateToKey(coord: CLLocationCoordinate2D) -> String{
@@ -36,10 +32,11 @@ class Utilities {
         return newImage!
     }
     
+    
     // get a readable text from DateComponent
     public static func dateCompToString(date: DateComponents?) -> String {
         if date != nil {
-            return "\(date!.hour!):\(date!.minute!), \(date!.year!)-\(date!.month!)-\(date!.day!)"
+            return "\(date!.hour!):\(date!.minute!) \(date!.year!)-\(date!.month!)-\(date!.day!)"
         }
         return ""
     }

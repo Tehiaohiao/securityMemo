@@ -11,7 +11,7 @@ class MockDatabase {
     
     
     
-    public static var database: [Incident] = [] {
+    public static var database: [String: [Incident]] = [:] {
         didSet{
             print(database)
         }

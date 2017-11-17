@@ -22,7 +22,6 @@ class Incident {
         case Violent = "Violent"
         case Burglary = "Burglary"
         case Others = "Others"
-        case Multiple = "Multiple"
     }
     
     public static let MISS_SUMMARY = "summary"

@@ -27,8 +27,23 @@ class IncidentReportPictureViewController: UIViewController, UIImagePickerContro
     @IBAction func doneBtnPressed(_ sender: UIBarButtonItem) {
         let (integrated, missing) = self.delegate.incident.check()
         if integrated {
-            // upload to database and clear user input
-            MockDatabase.database.append(self.delegate.incident.makeCopy())
+            
+            
+            
+            // Mocking database  ------------------------------------------------
+            // upload to database
+            let key = Utilities.convertCoordinateToKey(coord: self.delegate.incident.location!.coordinate!)
+            if MockDatabase.database[key] == nil {
+                MockDatabase.database[key] = []
+            }
+            MockDatabase.database[key]?.append(self.delegate.incident.makeCopy())
+            
+            //-----------------------------------------------------------------
+            
+            
+            
+            
+            //clear user input
             self.clear()
 
             // go to map view

@@ -14,7 +14,6 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     
     private let SPAN_WIDTH: CLLocationDegrees = 0.05    // default span with when you search a place
     private let PIN_SIZE: CGFloat = 50          // default size of pin annotation
-    private let INCIDENT_PIN_IDENTIFIER = "IncidentPinIdentifier"   //default annotation veiw indentifier
     private var locationManager: LocationManager!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -40,8 +39,8 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
         
         // add annotation for each incident
         // NOTE: using mock database for now
-        for ict in MockDatabase.database {
-            self.mapView.addAnnotation(IncidentPinAnnotation(incident: ict))
+        for key in MockDatabase.database.keys {
+            self.mapView.addAnnotation(IncidentPinAnnotation(key: key))
         }
         
     }
@@ -51,8 +50,8 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
             self.mapView.removeAnnotations(self.mapView.annotations)
             // add annotation for each incident
             // NOTE: using mock database for now
-            for ict in MockDatabase.database {
-                self.mapView.addAnnotation(IncidentPinAnnotation(incident: ict))
+            for key in MockDatabase.database.keys {
+                self.mapView.addAnnotation(IncidentPinAnnotation(key: key))
             }
         }
         
@@ -105,9 +104,9 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     
     // customize annotation view for each annotation
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: self.INCIDENT_PIN_IDENTIFIER)
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: Identifiers.INCT_PIN_VIEW_ID)
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: self.INCIDENT_PIN_IDENTIFIER)
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: Identifiers.INCT_PIN_VIEW_ID)
             annotationView?.canShowCallout = true // enable call out
         }
         else {
@@ -130,10 +129,22 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     // segue to detailed view
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control ==  view.rightCalloutAccessoryView && view.annotation is IncidentPinAnnotation {
-            let detailVC = self.storyboard?.instantiateViewController(withIdentifier: "incidentDetailVC") as! IncidentDetailViewController
             let inctAnnotation = view.annotation as! IncidentPinAnnotation
-            detailVC.incident = inctAnnotation.incident
-            self.navigationController?.pushViewController(detailVC, animated: true)
+            
+            // if only single report, go directly to detailed view
+            // otherwise go to multiple incidents table view
+            if MockDatabase.database[inctAnnotation.key]?.count == 1 {
+                let detailVC = self.storyboard?.instantiateViewController(withIdentifier: Identifiers.DETAIL_VC_ID) as! IncidentDetailViewController
+                detailVC.incident = MockDatabase.database[inctAnnotation.key]?.first
+                detailVC.navigationItem.title = detailVC.incident.location?.name!
+                self.navigationController?.pushViewController(detailVC, animated: true)
+            }
+            else {
+                let multiInctDetailVC = self.storyboard?.instantiateViewController(withIdentifier: Identifiers.MULTI_INCT_DETAIL_VC_ID) as! MultiIncidentsDetailsViewController
+                multiInctDetailVC.incidents = MockDatabase.database[inctAnnotation.key]
+                multiInctDetailVC.navigationItem.title = multiInctDetailVC.incidents.first?.location?.name!
+                self.navigationController?.pushViewController(multiInctDetailVC, animated: true)
+            }
         }
     }
     

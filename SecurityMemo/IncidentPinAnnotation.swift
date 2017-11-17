@@ -12,74 +12,57 @@ import MapKit
 // customized annotation
 class IncidentPinAnnotation: MKPointAnnotation {
     
-    var incident: Incident!
+    var key: String!
 
-    init(incident: Incident) {
+    init(key: String) {
         super.init()
-        if !incident.check().0 {
+        if MockDatabase.database[key] == nil || MockDatabase.database[key]!.count <= 0 || !MockDatabase.database[key]!.first!.check().0 {
             print("CANNOT GET ANNOTATION FOR AN INVALID INCIDENT")
             return
         }
-        self.incident = incident
-        self.coordinate = (self.incident.location?.coordinate!)!
-        self.title = self.incident.location?.name!
+        self.key = key
+        self.coordinate = (MockDatabase.database[self.key]?.first?.location?.coordinate)!
+        self.title = MockDatabase.database[self.key]?.first?.location?.name
         self.subtitle = self.getSubTitle()
     }
     
     // get the name of image for the pin from the incident type
     public func getPinImageName() -> String{
-        switch self.incident.type! {
-        case Incident.IncidentType.Robbery:
-            return "robberyPin"
-        case Incident.IncidentType.Theft:
-            return "theftPin"
-        case Incident.IncidentType.Violent:
-            return "violentPin"
-        case Incident.IncidentType.Burglary:
-            return "burglaryPin"
-        case Incident.IncidentType.Others:
-            return "othersPin"
-        default:
-            return "multiplePin"
+        
+        if MockDatabase.database[self.key]?.count == 1 {
+            let incident = MockDatabase.database[self.key]?.first
+            switch incident!.type! {
+            case Incident.IncidentType.Robbery:
+                return "robberyPin"
+            case Incident.IncidentType.Theft:
+                return "theftPin"
+            case Incident.IncidentType.Violent:
+                return "violentPin"
+            case Incident.IncidentType.Burglary:
+                return "burglaryPin"
+            default:
+                return "othersPin"
+            }
         }
+        return "multiplePin"
     }
     
-    // get a key for the annotation to match the annotation with an incident stored in database
-    public func getKey() ->String? {
-        return Utilities.convertCoordinateToKey(coord: self.coordinate)
-    }
     
     
-    // get displaying text for subtitle
-    public func getSubTitle() -> String? {
-        var numRob = 0
-        var numThef = 0
-        var numViol = 0
-        var numBurg = 0
-        var numOthers = 0
+    // get displaying text for subtitle by collecting all reported incidents
+    public func getSubTitle() -> String{
         
-        // case of only one report for the location
-        switch self.incident.type! {
-        case Incident.IncidentType.Robbery:
-            numRob += 1
-            break
-        case Incident.IncidentType.Theft:
-            numThef += 1
-            break
-        case Incident.IncidentType.Violent:
-            numViol += 1
-            break
-        case Incident.IncidentType.Burglary:
-            numBurg += 1
-            break
-        case Incident.IncidentType.Others:
-            numOthers += 1
-            break
-        default:
-            break
+        var ans: [Incident.IncidentType: Int] = [Incident.IncidentType.Robbery : 0]
+        ans[Incident.IncidentType.Theft] = 0
+        ans[Incident.IncidentType.Violent] = 0
+        ans[Incident.IncidentType.Burglary] = 0
+        ans[Incident.IncidentType.Others] = 0
+        
+        for incident in MockDatabase.database[self.key]! {
+            ans[incident.type!]! += 1
         }
         
-        return "R(\(numRob)), T(\(numThef)), V(\(numViol)), B(\(numBurg)), O(\(numOthers))"
+        return "R(\(ans[Incident.IncidentType.Robbery]!)), T(\(ans[Incident.IncidentType.Theft]!)), V(\(ans[Incident.IncidentType.Violent]!)), B(\(ans[Incident.IncidentType.Burglary]!)), O(\(ans[Incident.IncidentType.Others]!))"
     }
     
     
