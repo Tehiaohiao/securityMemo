@@ -26,6 +26,9 @@ class IncidentReportInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+
+
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     /*
@@ -55,6 +58,38 @@ class IncidentReportInfoViewController: UIViewController {
         
         // initialize location manager
         self.locationManager = LocationManager()
+        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(IncidentReportInfoViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(IncidentReportInfoViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        //tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+
+    }
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+
+    func keyboardWillShow(_ notification:Notification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+        }
+    }
+    func keyboardWillHide(_ notification:Notification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+        }
     }
     
     
@@ -67,6 +102,7 @@ class IncidentReportInfoViewController: UIViewController {
         locationLabel.textColor = UIColor.black
         timeLabel.textColor = UIColor.black
         descriptionLabel.textColor = UIColor.black
+
     }
     
     
