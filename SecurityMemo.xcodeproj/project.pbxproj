@@ -26,6 +26,7 @@
 		01E2CB7D1FBCB82B00C9D305 /* IncidentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */; };
 		01E2CB7F1FBCBC7000C9D305 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2CB7E1FBCBC7000C9D305 /* MapKit.framework */; };
 		C04044441FC28FA900EE30DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C04044431FC28FA900EE30DC /* GoogleService-Info.plist */; };
+		C04044461FC2A30100EE30DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04044451FC2A30100EE30DC /* SettingsViewController.swift */; };
 		FA1DA0F1CC45ED9BBA61B89A /* Pods_SecurityMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurityMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85ECD224AC4A0532495C09FA /* Pods-SecurityMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurityMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo.release.xcconfig"; sourceTree = "<group>"; };
 		C04044431FC28FA900EE30DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C04044451FC2A30100EE30DC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D96479E035734501E6937037 /* Pods-SecurityMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurityMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 		01425A761FB8B23800A43FD1 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C04044451FC2A30100EE30DC /* SettingsViewController.swift */,
 				01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */,
 				01425A771FB8B5DA00A43FD1 /* IncidentReportInfoViewController.swift */,
 				01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */,
@@ -323,6 +326,7 @@
 				01E2CB7B1FBC9E9700C9D305 /* MockingDatabase.swift in Sources */,
 				01113A511FBA4CD5007802F3 /* Incident.swift in Sources */,
 				01B18EF51FBD25DE00E2FAFB /* Utilities.swift in Sources */,
+				C04044461FC2A30100EE30DC /* SettingsViewController.swift in Sources */,
 				01989FD41FBE74AC00331430 /* Identifiers.swift in Sources */,
 				01989FD01FBE6C8D00331430 /* IncidentDetailTableViewCell.swift in Sources */,
 				01B18EF31FBCF15000E2FAFB /* IncidentPinAnnotation.swift in Sources */,
