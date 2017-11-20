@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-
+import Firebase
 
 class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapViewDelegate {
     
@@ -17,11 +17,11 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     private var locationManager: LocationManager!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Database.database().reference()
         // configure activity indicator
         self.activityIndicator.hidesWhenStopped = true
         

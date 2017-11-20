@@ -25,6 +25,8 @@
 		01E2CB7B1FBC9E9700C9D305 /* MockingDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */; };
 		01E2CB7D1FBCB82B00C9D305 /* IncidentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */; };
 		01E2CB7F1FBCBC7000C9D305 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2CB7E1FBCBC7000C9D305 /* MapKit.framework */; };
+		C04044441FC28FA900EE30DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C04044431FC28FA900EE30DC /* GoogleService-Info.plist */; };
+		FA1DA0F1CC45ED9BBA61B89A /* Pods_SecurityMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,10 @@
 		01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentMapViewController.swift; sourceTree = "<group>"; };
 		01E2CB7E1FBCBC7000C9D305 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		01F1EFC01FB94DCA001D2ADD /* SecurityMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecurityMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurityMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85ECD224AC4A0532495C09FA /* Pods-SecurityMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurityMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo.release.xcconfig"; sourceTree = "<group>"; };
+		C04044431FC28FA900EE30DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D96479E035734501E6937037 /* Pods-SecurityMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurityMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,7 @@
 			files = (
 				01E2CB7F1FBCBC7000C9D305 /* MapKit.framework in Frameworks */,
 				01D07DDE1FBBF32C0094C8E6 /* CoreLocation.framework in Frameworks */,
+				FA1DA0F1CC45ED9BBA61B89A /* Pods_SecurityMemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +84,14 @@
 			children = (
 				01425A621FB8A7DC00A43FD1 /* SecurityMemo */,
 				01D07DDC1FBBF32B0094C8E6 /* Frameworks */,
+				6444ED05071355A29A8DACFC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
 		01425A621FB8A7DC00A43FD1 /* SecurityMemo */ = {
 			isa = PBXGroup;
 			children = (
+				C04044431FC28FA900EE30DC /* GoogleService-Info.plist */,
 				01425A6A1FB8A7DC00A43FD1 /* Assets.xcassets */,
 				01425A631FB8A7DC00A43FD1 /* AppDelegate.swift */,
 				01425A6C1FB8A7DC00A43FD1 /* LaunchScreen.storyboard */,
@@ -133,6 +142,7 @@
 			children = (
 				01E2CB7E1FBCBC7000C9D305 /* MapKit.framework */,
 				01D07DDD1FBBF32C0094C8E6 /* CoreLocation.framework */,
+				44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -146,6 +156,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		6444ED05071355A29A8DACFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D96479E035734501E6937037 /* Pods-SecurityMemo.debug.xcconfig */,
+				85ECD224AC4A0532495C09FA /* Pods-SecurityMemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01425A721FB8A7DC00A43FD1 /* Build configuration list for PBXNativeTarget "SecurityMemo" */;
 			buildPhases = (
+				E9C316C18CF98333EEA2662E /* [CP] Check Pods Manifest.lock */,
 				01425A5C1FB8A7DC00A43FD1 /* Sources */,
 				01425A5D1FB8A7DC00A43FD1 /* Frameworks */,
 				01425A5E1FB8A7DC00A43FD1 /* Resources */,
+				E557DB0C4C1EAC58F21E2730 /* [CP] Embed Pods Frameworks */,
+				9636B4530E3D88CE77057664 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -178,7 +200,7 @@
 				TargetAttributes = {
 					01425A5F1FB8A7DC00A43FD1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = S88W4A3559;
+						DevelopmentTeam = 9DB756F4US;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -207,12 +229,85 @@
 			buildActionMask = 2147483647;
 			files = (
 				01425A6E1FB8A7DC00A43FD1 /* LaunchScreen.storyboard in Resources */,
+				C04044441FC28FA900EE30DC /* GoogleService-Info.plist in Resources */,
 				01425A6B1FB8A7DC00A43FD1 /* Assets.xcassets in Resources */,
 				01425A691FB8A7DC00A43FD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9636B4530E3D88CE77057664 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E557DB0C4C1EAC58F21E2730 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9C316C18CF98333EEA2662E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SecurityMemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01425A5C1FB8A7DC00A43FD1 /* Sources */ = {
@@ -354,10 +449,11 @@
 		};
 		01425A731FB8A7DC00A43FD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D96479E035734501E6937037 /* Pods-SecurityMemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = S88W4A3559;
+				DEVELOPMENT_TEAM = 9DB756F4US;
 				INFOPLIST_FILE = SecurityMemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -371,10 +467,11 @@
 		};
 		01425A741FB8A7DC00A43FD1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85ECD224AC4A0532495C09FA /* Pods-SecurityMemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = S88W4A3559;
+				DEVELOPMENT_TEAM = 9DB756F4US;
 				INFOPLIST_FILE = SecurityMemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
