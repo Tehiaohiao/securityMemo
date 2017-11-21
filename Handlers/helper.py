@@ -3,7 +3,7 @@ import re
 from twilio.rest import TwilioRestClient 
  
 #reserved for twilio message usage
-def send_message(toNumber, fromNumber, name, incident):
+def send_message(toNumber, fromNumber, name):
     ACCOUNT_SID = "xxxx" 
     AUTH_TOKEN = "xxxx" 
      
@@ -12,7 +12,7 @@ def send_message(toNumber, fromNumber, name, incident):
     client.messages.create(
         to=toNumber, 
         from_=fromNumber,
-        body="Hello from "+ name + ": "+incident+" happens arround your saved location, please be careful.", 
+        body="Hello from "+ name + ": It's been three days since your last stay and our record found that you have not been moved to any of the shelters in the system, can we get any update to your status? Hope everything goes well.", 
     )
 
 
