@@ -10,12 +10,19 @@ import UIKit
 
 class AccountViewController: UIViewController {
     
+    @IBOutlet weak var usernameLabel: UILabel!
     var username:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        usernameLabel.text = username
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        usernameLabel.text = username
     }
 
     override func didReceiveMemoryWarning() {

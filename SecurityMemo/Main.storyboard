@@ -261,7 +261,7 @@
         <!--Incident Detail View Controller-->
         <scene sceneID="t6Q-FN-J6U">
             <objects>
-                <viewController storyboardIdentifier="accountVCID" id="5Up-vq-TZe" customClass="IncidentDetailViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="incidentDetailVC" id="5Up-vq-TZe" customClass="IncidentDetailViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Unp-kw-w4L"/>
                         <viewControllerLayoutGuide type="bottom" id="oj6-0V-puo"/>
@@ -471,7 +471,7 @@
         <!--My Account-->
         <scene sceneID="wbc-T9-ZEM">
             <objects>
-                <viewController id="qGB-h7-wLc" customClass="AccountViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountVCID" id="qGB-h7-wLc" customClass="AccountViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ehw-pM-81u"/>
                         <viewControllerLayoutGuide type="bottom" id="tm0-ac-u6R"/>
@@ -522,6 +522,9 @@
                     <navigationItem key="navigationItem" title="My Account" id="Nqc-RB-rNI">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="84C-ls-zZV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="usernameLabel" destination="i4H-rQ-W8u" id="6EB-vd-7LS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tnf-fM-aem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

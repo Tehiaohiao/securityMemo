@@ -8,6 +8,8 @@
 
 import UIKit
 
+var username:String = ""
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTF: UITextField!
@@ -16,7 +18,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     var login = true // true when login, false when register
-    var username:String = ""
     var password:String = ""
     
     override func viewDidLoad() {
@@ -56,7 +57,7 @@ class LoginViewController: UIViewController {
             if loginVerified {
                 errorLabel.alpha = 0
                 let accountVC = self.storyboard?.instantiateViewController(withIdentifier: Identifiers.ACCT_VC_ID) as! AccountViewController
-                accountVC.username = self.username
+                accountVC.username = username
                 self.navigationController?.pushViewController(accountVC, animated: true)
             }
             else {
@@ -65,6 +66,15 @@ class LoginViewController: UIViewController {
         }
         else { // register
             let registerSuccess = createUser(user: username, pass: password)
+            if registerSuccess {
+                errorLabel.alpha = 0
+                let accountVC = self.storyboard?.instantiateViewController(withIdentifier: Identifiers.ACCT_VC_ID) as! AccountViewController
+                accountVC.username = username
+                self.navigationController?.pushViewController(accountVC, animated: true)
+            }
+            else {
+                errorLabel.alpha = 1
+            }
         }
     }
     
