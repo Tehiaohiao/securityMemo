@@ -22,10 +22,10 @@
 		01BB597E1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */; };
 		01D07DDB1FBBF2220094C8E6 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D07DDA1FBBF2220094C8E6 /* LocationManager.swift */; };
 		01D07DDE1FBBF32C0094C8E6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D07DDD1FBBF32C0094C8E6 /* CoreLocation.framework */; };
+		01E0272A1FD45CFE008DBDF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01E027291FD45CFE008DBDF1 /* GoogleService-Info.plist */; };
 		01E2CB7B1FBC9E9700C9D305 /* MockingDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */; };
 		01E2CB7D1FBCB82B00C9D305 /* IncidentMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */; };
 		01E2CB7F1FBCBC7000C9D305 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01E2CB7E1FBCBC7000C9D305 /* MapKit.framework */; };
-		C04044441FC28FA900EE30DC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C04044431FC28FA900EE30DC /* GoogleService-Info.plist */; };
 		C04044461FC2A30100EE30DC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04044451FC2A30100EE30DC /* SettingsViewController.swift */; };
 		FA1DA0F1CC45ED9BBA61B89A /* Pods_SecurityMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */; };
 /* End PBXBuildFile section */
@@ -47,13 +47,13 @@
 		01BB597D1FBB8ADE004C51C8 /* IncidentReportPictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentReportPictureViewController.swift; sourceTree = "<group>"; };
 		01D07DDA1FBBF2220094C8E6 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		01D07DDD1FBBF32C0094C8E6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		01E027291FD45CFE008DBDF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01E2CB7A1FBC9E9700C9D305 /* MockingDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockingDatabase.swift; sourceTree = "<group>"; };
 		01E2CB7C1FBCB82B00C9D305 /* IncidentMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncidentMapViewController.swift; sourceTree = "<group>"; };
 		01E2CB7E1FBCBC7000C9D305 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		01F1EFC01FB94DCA001D2ADD /* SecurityMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecurityMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D6CF7188FD383FD3C7D97F /* Pods_SecurityMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecurityMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85ECD224AC4A0532495C09FA /* Pods-SecurityMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurityMemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo.release.xcconfig"; sourceTree = "<group>"; };
-		C04044431FC28FA900EE30DC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C04044451FC2A30100EE30DC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D96479E035734501E6937037 /* Pods-SecurityMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecurityMemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +93,7 @@
 		01425A621FB8A7DC00A43FD1 /* SecurityMemo */ = {
 			isa = PBXGroup;
 			children = (
-				C04044431FC28FA900EE30DC /* GoogleService-Info.plist */,
+				01E027291FD45CFE008DBDF1 /* GoogleService-Info.plist */,
 				01425A6A1FB8A7DC00A43FD1 /* Assets.xcassets */,
 				01425A631FB8A7DC00A43FD1 /* AppDelegate.swift */,
 				01425A6C1FB8A7DC00A43FD1 /* LaunchScreen.storyboard */,
@@ -203,7 +203,7 @@
 				TargetAttributes = {
 					01425A5F1FB8A7DC00A43FD1 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 9DB756F4US;
+						DevelopmentTeam = S88W4A3559;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -232,7 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01425A6E1FB8A7DC00A43FD1 /* LaunchScreen.storyboard in Resources */,
-				C04044441FC28FA900EE30DC /* GoogleService-Info.plist in Resources */,
+				01E0272A1FD45CFE008DBDF1 /* GoogleService-Info.plist in Resources */,
 				01425A6B1FB8A7DC00A43FD1 /* Assets.xcassets in Resources */,
 				01425A691FB8A7DC00A43FD1 /* Main.storyboard in Resources */,
 			);
@@ -263,27 +263,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SecurityMemo/Pods-SecurityMemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -457,7 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9DB756F4US;
+				DEVELOPMENT_TEAM = S88W4A3559;
 				INFOPLIST_FILE = SecurityMemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -475,7 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9DB756F4US;
+				DEVELOPMENT_TEAM = S88W4A3559;
 				INFOPLIST_FILE = SecurityMemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
