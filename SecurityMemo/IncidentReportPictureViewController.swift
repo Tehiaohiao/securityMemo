@@ -7,16 +7,15 @@
 //
 
 import UIKit
-import Firebase
+
 class IncidentReportPictureViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     weak var delegate: IncidentReportInfoViewController!
     @IBOutlet weak var imageView: UIImageView!
-    var ref: DatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ref = Database.database().reference()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,10 +39,6 @@ class IncidentReportPictureViewController: UIViewController, UIImagePickerContro
             MockDatabase.database[key]?.append(self.delegate.incident.makeCopy())
             
             //-----------------------------------------------------------------
-//            self.ref.child("Location2").child("summary").setValue(self.delegate.incident.summary!)
-//            self.ref.child("Location2").child("time").setValue(Utilities.dateCompToString(date: self.delegate.incident.dateTime!))
-//            self.ref.child("Location").child("time").setValue(self.delegate.incident.Time!)
-//            self.ref.child("Location2").child("des").setValue(self.delegate.incident.description!)
             
             
             

@@ -15,7 +15,7 @@ class Utilities {
     // construct a key for the annotation which takes forms of "LA-latitude,LO-longitude"
     // this key is going to be used uniquely indentify the annotation
     public static func convertCoordinateToKey(coord: CLLocationCoordinate2D) -> String{
-        return "\(coord.latitude),\(coord.longitude)"
+        return "LA-\(coord.latitude),LO-\(coord.longitude)"
     }
     
     

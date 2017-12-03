@@ -7,18 +7,17 @@
 //
 
 import UIKit
-import Firebase
+
 class IncidentDetailViewController: UIViewController {
     
     var incident: Incident!
-    var ref: DatabaseReference!
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var detailedInfoTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imageView.image = self.incident.picture
         self.detailedInfoTextView.text = self.prepareDetailInfo()
-        ref = Database.database().reference()
     }
 
     private func prepareDetailInfo() -> String {

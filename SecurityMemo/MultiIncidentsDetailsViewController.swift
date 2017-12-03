@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import Firebase
+
 class MultiIncidentsDetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     var incidents: [Incident]!
     @IBOutlet weak var tableView: UITableView!
-    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
