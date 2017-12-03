@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-
+import Firebase
 class IncidentReportInfoViewController: UIViewController {
 
     var incident: Incident!  // preparing incident object
@@ -25,7 +25,7 @@ class IncidentReportInfoViewController: UIViewController {
     @IBOutlet weak var dateTimePickerView: UIDatePicker!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
-    
+    var ref: DatabaseReference!
 
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -54,6 +54,12 @@ class IncidentReportInfoViewController: UIViewController {
         // initialize an incident
         self.incident = Incident()
         self.incident.dateTime = Calendar.current.dateComponents([.hour, .minute, .day, .month,.year], from: dateTimePickerView.date)
+        let calendar = Calendar(identifier: .gregorian)
+        let date = calendar.date(from: self.incident.dateTime!)!
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy HH:mm"
+        self.incident.Time = formatter.string(from: date)
+        
         self.incident.type = Incident.IncidentType.Others
         
         // initialize location manager
@@ -81,15 +87,15 @@ class IncidentReportInfoViewController: UIViewController {
 
     func keyboardWillShow(_ notification:Notification) {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
-        }
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+//        }
     }
     func keyboardWillHide(_ notification:Notification) {
         
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        }
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+//            scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0)
+//        }
     }
     
     

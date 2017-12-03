@@ -34,6 +34,7 @@ class Incident {
     var type: IncidentType? = .Others
     var location: Location? = Location()
     var dateTime: DateComponents? = nil
+    var Time: String? = nil
     var description: String? = nil
     var picture: UIImage? = nil
     
