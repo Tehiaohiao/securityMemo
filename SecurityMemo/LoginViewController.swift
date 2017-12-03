@@ -7,21 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var errorLabel: UILabel!
-    
+    var ref: DatabaseReference!
     var login = true // true when login, false when register
     var username:String = ""
     var password:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.ref = Database.database().reference()
         // Do any additional setup after loading the view.
         errorLabel.alpha = 0
     }
@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
             }
         }
         else { // register
-            let registerSuccess = createUser(user: username, pass: password)
+            let registerSuccess = (user: username, pass: password)
         }
     }
     

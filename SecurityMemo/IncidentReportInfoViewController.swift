@@ -36,7 +36,7 @@ class IncidentReportInfoViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.ref = Database.database().reference()
         // set up border for description textView and imageView
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.borderWidth = 1

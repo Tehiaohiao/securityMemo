@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class SettingsViewController: UIViewController {
     
     
@@ -24,11 +24,10 @@ class SettingsViewController: UIViewController {
     var incidentType:Incident.IncidentType = Incident.IncidentType.Robbery
     var startDate:Date = NSDate() as Date
     var endDate:Date = NSDate() as Date
-    
-    
+    var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.ref = Database.database().reference()
         // Do any additional setup after loading the view.
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
