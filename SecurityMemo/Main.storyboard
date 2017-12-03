@@ -261,7 +261,7 @@
         <!--Incident Detail View Controller-->
         <scene sceneID="t6Q-FN-J6U">
             <objects>
-                <viewController storyboardIdentifier="accountVCID" id="5Up-vq-TZe" customClass="IncidentDetailViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="incidentDetailVC" id="5Up-vq-TZe" customClass="IncidentDetailViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Unp-kw-w4L"/>
                         <viewControllerLayoutGuide type="bottom" id="oj6-0V-puo"/>
@@ -471,7 +471,7 @@
         <!--My Account-->
         <scene sceneID="wbc-T9-ZEM">
             <objects>
-                <viewController id="qGB-h7-wLc" customClass="AccountViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="accountVCID" id="qGB-h7-wLc" customClass="AccountViewController" customModule="SecurityMemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ehw-pM-81u"/>
                         <viewControllerLayoutGuide type="bottom" id="tm0-ac-u6R"/>
@@ -522,6 +522,9 @@
                     <navigationItem key="navigationItem" title="My Account" id="Nqc-RB-rNI">
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="84C-ls-zZV"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="acctNameLabel" destination="i4H-rQ-W8u" id="UeU-Ec-ZVL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tnf-fM-aem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -699,14 +702,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv6-qE-4pm">
-                                <rect key="frame" x="168" y="376" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginClicked:" destination="Qi2-ug-7Ph" eventType="touchUpInside" id="6hR-IS-i8b"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid username or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBk-wP-CuG">
                                 <rect key="frame" x="74" y="183" width="227" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -714,6 +709,14 @@
                                 <color key="textColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="0.63" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv6-qE-4pm">
+                                <rect key="frame" x="150" y="375" width="74" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginClicked:" destination="Qi2-ug-7Ph" eventType="touchUpInside" id="6hR-IS-i8b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

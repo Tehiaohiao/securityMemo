@@ -10,12 +10,18 @@ import UIKit
 import Firebase
 class AccountViewController: UIViewController {
     
+    @IBOutlet weak var acctNameLabel: UILabel!
     var username:String = ""
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ref = Database.database().reference()
         // Do any additional setup after loading the view.
+        acctNameLabel.text = username
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        acctNameLabel.text = username
     }
 
     override func didReceiveMemoryWarning() {
