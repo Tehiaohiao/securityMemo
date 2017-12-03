@@ -18,7 +18,7 @@ class IncidentDetailViewController: UIViewController {
         super.viewDidLoad()
         self.imageView.image = self.incident.picture
         self.detailedInfoTextView.text = self.prepareDetailInfo()
-        self.ref = Database.database().reference()
+        ref = Database.database().reference()
     }
 
     private func prepareDetailInfo() -> String {

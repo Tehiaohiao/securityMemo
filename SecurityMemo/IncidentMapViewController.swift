@@ -21,7 +21,7 @@ class IncidentMapViewController: UIViewController, UISearchBarDelegate, MKMapVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ref = Database.database().reference()
+        ref = Database.database().reference()
         // configure activity indicator
         self.activityIndicator.hidesWhenStopped = true
         

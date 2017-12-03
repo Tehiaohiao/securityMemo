@@ -16,7 +16,7 @@ class MultiIncidentsDetailsViewController: UIViewController, UITableViewDelegate
     var ref: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ref = Database.database().reference()
+        ref = Database.database().reference()
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }

@@ -7,15 +7,15 @@
 //
 
 import UIKit
-import Firebase
+
 class AccountViewController: UIViewController {
     
     @IBOutlet weak var acctNameLabel: UILabel!
     var username:String = ""
-    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ref = Database.database().reference()
+
         // Do any additional setup after loading the view.
         acctNameLabel.text = username
     }
