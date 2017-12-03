@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     var login = true // true when login, false when register
-    
+    var username:String = ""
     var password:String = ""
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
             if loginVerified {
                 errorLabel.alpha = 0
                 let accountVC = self.storyboard?.instantiateViewController(withIdentifier: Identifiers.ACCT_VC_ID) as! AccountViewController
-                accountVC.username = username
+                accountVC.username = self.username
                 self.navigationController?.pushViewController(accountVC, animated: true)
             }
             else {
